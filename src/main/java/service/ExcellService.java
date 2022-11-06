@@ -24,7 +24,7 @@ public class ExcellService {
 
 
     FileDAO fileDAO = new FileDAOImpl();
-    public void createExcell(String pathXml) {
+    public void createExcell(String pathXml) throws ParseException {
 
         List<OrdersToExcel> ordersToExcels = loadInfo();
         try (Workbook workbook = new XSSFWorkbook()){
@@ -114,21 +114,19 @@ public class ExcellService {
         List<OrdersToExcel> ordersToExcels = new ArrayList<>();
 
         for (int i = 0; i < lines.size(); i++) {
-            String[] splitLine = lines.get(i).split("<", Integer.parseInt(">"));
+            String[] splitLine = lines.get(i).split("< >");
             ordersList.add(new Orders(splitLine[0], splitLine[1], splitLine[2],splitLine[3], splitLine[4]));
             String productStatusDateString = splitLine[3];
             String deliverStatusDateString = splitLine[4];
-            int pS= Integer.parseInt(String.valueOf(splitLine[3].split(">", Integer.parseInt("/"))));
-            int dS= Integer.parseInt(String.valueOf(splitLine[4].split(">", Integer.parseInt("/"))));
+            int pS= Integer.parseInt(splitLine[3]);
+            int dS= Integer.parseInt(splitLine[4]);
             Date deliverStatusDate = formato.parse(deliverStatusDateString);
             Date productStatusDate = formato.parse(productStatusDateString);
             String productStatus = "";
             String deliverStatus = "";
 
 
-            if(pS + 30){
-
-            }
+            if ()
 
             ordersToExcels.add(new OrdersToExcel(splitLine[0],splitLine[1], productStatusDate, deliverStatusDate, productStatusDate ,deliverStatusDate ));
 
