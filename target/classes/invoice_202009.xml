@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ventas>
+<articulo>
+<nombre>Fiesta Glam</nombre>
+<tipo>Vestido</tipo>
+<fecha>29/08/2020</fecha>
+<precio>70.00</precio>
+<coste>48.10</coste>
+<beneficio>21.90</beneficio>
+</articulo>
+<articulo>
+<nombre>Fiesta Glam</nombre>
+<tipo>Vestido</tipo>
+<fecha>30/08/2020</fecha>
+<precio>70.00</precio>
+<coste>48.10</coste>
+<beneficio>21.90</beneficio>
+</articulo>
+<articulo>
+<nombre>Snoopy</nombre>
+<tipo>Camiseta</tipo>
+<fecha>29/08/2020</fecha>
+<precio>8.00</precio>
+<coste>5.90</coste>
+<beneficio>2.10</beneficio>
+</articulo>
+<articulo>
+<nombre>Friends</nombre>
+<tipo>Camiseta</tipo>
+<fecha>30/08/2020</fecha>
+<precio>8.00</precio>
+<coste>5.90</coste>
+<beneficio>2.10</beneficio>
+</articulo>
+</ventas>

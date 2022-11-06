@@ -119,22 +119,28 @@ public class ExcellService {
             ordersList.add(new Orders(splitLine[0], splitLine[1], splitLine[2],splitLine[3], splitLine[4]));
             String saleDateString = splitLine[2];
             String deliverDateString = splitLine[3];
-            //int sD= Integer.parseInt(splitLine[2]);
-            //int dD= Integer.parseInt(splitLine[3]);
+            int sD= Integer.parseInt(splitLine[2]);
+            int dD= Integer.parseInt(splitLine[3]);
             Date deliverStatusDate = formato.parse(deliverDateString);
             Date saleStatusDate = formato.parse(saleDateString);
             String productStatus = "";
             Date today = calendar.getTime();
             Date todayFormat = formato.parse(String.valueOf(today));
 
-            if (deliverStatusDate.before(todayFormat) && splitLine[4].equals("confirmado")){
+            if (deliverStatusDate.after(todayFormat) && splitLine[4].equals("confirmado")){
                 productStatus = "en origen";
             }
-            if (deliverStatusDate.before(todayFormat) && splitLine[4].equals("pendiente")){
+            if (deliverStatusDate.after(todayFormat) && splitLine[4].equals("pendiente")){
                 productStatus = "en recogida";
             }
             if (deliverStatusDate.before(todayFormat) && splitLine[4].equals("pendiente")) {
-                productStatus = "en recogida";
+                productStatus = "en reparto";
+            }
+            if (deliverStatusDate.before(todayFormat) && splitLine[4].equals("finalizado")) {
+                productStatus = "entregado";
+            }
+            if ((sD - dD) == 30){
+                productStatus = "perdido";
             }
 
             ordersToExcels.add(new OrdersToExcel(splitLine[0],splitLine[1], saleStatusDate, deliverStatusDate, splitLine[4],productStatus ));
