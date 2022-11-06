@@ -116,19 +116,21 @@ public class ExcellService {
         for (int i = 0; i < lines.size(); i++) {
             String[] splitLine = lines.get(i).split("< >");
             ordersList.add(new Orders(splitLine[0], splitLine[1], splitLine[2],splitLine[3], splitLine[4]));
-            String productStatusDateString = splitLine[3];
-            String deliverStatusDateString = splitLine[4];
-            int pS= Integer.parseInt(splitLine[3]);
-            int dS= Integer.parseInt(splitLine[4]);
-            Date deliverStatusDate = formato.parse(deliverStatusDateString);
-            Date productStatusDate = formato.parse(productStatusDateString);
+            String saleDateString = splitLine[2];
+            String deliverDateString = splitLine[3];
+            int sD= Integer.parseInt(splitLine[2]);
+            int dD= Integer.parseInt(splitLine[3]);
+            Date deliverStatusDate = formato.parse(deliverDateString);
+            Date saleStatusDate = formato.parse(saleDateString);
             String productStatus = "";
-            String deliverStatus = "";
+            Calendar calendar = Calendar.getInstance();
+
+            if (){
+
+            }
 
 
-            if ()
-
-            ordersToExcels.add(new OrdersToExcel(splitLine[0],splitLine[1], productStatusDate, deliverStatusDate, productStatusDate ,deliverStatusDate ));
+            ordersToExcels.add(new OrdersToExcel(splitLine[0],splitLine[1], saleStatusDate, deliverStatusDate, splitLine[4],productStatus ));
 
         }
 
